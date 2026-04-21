@@ -117,22 +117,22 @@ app = FastAPI(
 # Configure CORS
 origins = [
     "http://localhost:3000",
-    "http://localhost:3001", 
+    "http://localhost:3001",
     "http://127.0.0.1:3000",
     "http://127.0.0.1:3001",
     "http://localhost:5173",
     "http://127.0.0.1:5173",
-]   
+]
 
 # Get additional origins from settings
-if hasattr(settings, 'BACKEND_CORS_ORIGINS'):
+if hasattr(settings, "BACKEND_CORS_ORIGINS"):
     backend_origins = settings.BACKEND_CORS_ORIGINS
     if isinstance(backend_origins, str):
         try:
             backend_origins = json.loads(backend_origins)
         except:
-            backend_origins = [o.strip() for o in backend_origins.split(',')]
-    
+            backend_origins = [o.strip() for o in backend_origins.split(",")]
+
     if isinstance(backend_origins, list):
         origins.extend(backend_origins)
 
@@ -157,7 +157,7 @@ default_origins = [
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Use the specific origins list WITHOUT "*"
+    allow_origins=["*"],  # Allow all origins for development
     allow_credentials=True,  # Keep this for cookies/tokens
     allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
@@ -314,7 +314,6 @@ if hasattr(currency, "router") and currency.router:
 
 
 if __name__ == "__main__":
-    
     import uvicorn
 
     uvicorn.run(
