@@ -1,9 +1,8 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom'; // Remove BrowserRouter import
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { AnimatePresence } from 'framer-motion';
 
 import MainLayout from 'components/layouts/MainLayout';
