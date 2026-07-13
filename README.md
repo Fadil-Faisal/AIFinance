@@ -525,5 +525,3 @@ For questions or support, please open an issue on GitHub.
 - Alpha Vantage and CoinGecko for market data
 
 ---
-
-**Made with ❤️ and AI**
